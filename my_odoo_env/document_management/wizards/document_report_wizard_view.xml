@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_document_report_wizard" model="ir.ui.view">
+        <field name="name">document.report.wizard.form</field>
+        <field name="model">document.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button string="Generate Report" type="object" name="generate_report" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_document_report_wizard"
+                name="Document Report Wizard"
+                res_model="document.report.wizard"
+                view_mode="form"
+                target="new"
+                view_id="view_document_report_wizard"/>
+</odoo>

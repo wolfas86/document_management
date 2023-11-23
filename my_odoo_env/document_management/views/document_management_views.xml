@@ -1,0 +1,38 @@
+<odoo>
+    <record id="view_document_tree" model="ir.ui.view">
+        <field name="name">document.tree</field>
+        <field name="model">document.management</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_document_form" model="ir.ui.view">
+        <field name="name">document.form</field>
+        <field name="model">document.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="company_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <menuitem id="document_management_main_menu" name="Document Management"
+              sequence="10" parent="base.menu_management"/>
+    <record id="action_document" model="ir.actions.act_window">
+        <field name="name">Documents</field>
+        <field name="res_model">document.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_document_tree"/>
+    </record>
+    <menuitem id="document_management_menu" name="Documents"
+              action="action_document"
+              parent="document_management_main_menu"/>
+</odoo>
